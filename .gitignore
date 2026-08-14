@@ -16,4 +16,11 @@ Thumbs.db
 .ipynb_checkpoints/
 
 # Environment variables
-.envgit add .gitignore
+.env
+
+# Learning / experimental notebooks
+notebooks/phase3_learning.ipynb
+
+# Large dataset files
+data/raw/*.csv
+data/processed/*.csv
