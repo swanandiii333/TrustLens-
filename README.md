@@ -1,7 +1,7 @@
-# AI-Powered Phishing URL Detection System
+# TrustLens
 
 ## Overview
-An AI-powered phishing URL detection system that uses Machine Learning to classify URLs as legitimate or phishing.
+An AI-powered phishing URL detection system (TrustLens) that uses Machine Learning to classify URLs as legitimate or phishing.
 
 ## Features
 - URL classification

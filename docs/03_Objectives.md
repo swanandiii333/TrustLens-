@@ -2,7 +2,9 @@
 
 ## Primary Objective
 
-To develop a Machine Learning–based system that classifies website URLs as **Phishing** or **Legitimate** using lexical (URL-based) features, and present the prediction through a simple and user-friendly Streamlit web application.
+To develop **TrustLens**, an AI-based Website Trust & Phishing Risk Analyzer that uses Machine Learning, URL feature analysis, and rule-based cybersecurity checks to assess the trustworthiness of websites and help users make safer decisions before visiting suspicious links.
+
+The system will classify websites as **Legitimate** or **Phishing**, generate a **Trust Score**, provide a **Confidence Score**, explain suspicious characteristics, and offer security recommendations through a simple Streamlit interface.
 
 ---
 
@@ -10,62 +12,197 @@ To develop a Machine Learning–based system that classifies website URLs as **P
 
 ### 1. Data Collection & Preprocessing
 
-Collect a reliable public phishing URL dataset and prepare it for Machine Learning by cleaning the data, handling missing values (if any), removing inconsistencies, and organizing it into a suitable format for model training.
+Collect a suitable public phishing URL dataset and prepare it for Machine Learning by:
+
+- Cleaning the dataset
+- Handling missing values
+- Removing duplicate entries
+- Understanding class distribution
+- Preparing data for feature extraction and model training
 
 ---
 
-### 2. Feature Engineering
+### 2. URL Feature Engineering
 
-Extract meaningful lexical (URL-based) features such as URL length, number of dots, hyphens, digits, special characters, subdomains, presence of an IP address, and other structural characteristics that help distinguish phishing URLs from legitimate ones.
+Extract meaningful lexical (URL-based) features such as:
+
+- URL Length
+- Number of Dots
+- Number of Slashes
+- Number of Digits
+- Special Characters
+- Presence of HTTPS
+- Number of Subdomains
+- Prefix/Suffix (-)
+- Use of IP Address
+- Suspicious Keywords
+
+These features will help distinguish phishing websites from legitimate websites.
 
 ---
 
-### 3. Model Training & Evaluation
+### 3. Rule-Based Cybersecurity Analysis
 
-Train one or more Machine Learning classification models using Scikit-learn and evaluate their performance using appropriate metrics such as:
+Implement additional cybersecurity checks alongside Machine Learning, including:
+
+- Missing HTTPS
+- IP Address Usage
+- Excessive URL Length
+- Suspicious Characters
+- Too Many Subdomains
+- Presence of Risky Keywords
+
+This objective demonstrates how practical cybersecurity tools often combine Machine Learning with expert-defined security rules.
+
+---
+
+### 4. Machine Learning Model Development
+
+Train and compare multiple Machine Learning algorithms using Scikit-learn, including:
+
+- Logistic Regression
+- Decision Tree
+- Random Forest
+
+The final model will be selected based on experimental evaluation rather than assumptions.
+
+---
+
+### 5. Model Evaluation
+
+Evaluate model performance using standard Machine Learning metrics:
 
 - Accuracy
 - Precision
 - Recall
 - F1-Score
 - Confusion Matrix
+- ROC-AUC Score
 
-to determine the effectiveness of the model.
-
----
-
-### 4. Interface Development
-
-Develop a simple and interactive Streamlit web application that enables users to:
-
-- Enter a website URL.
-- Predict whether the URL is **Phishing** or **Legitimate**.
-- Display the prediction along with the model's confidence score.
+This ensures that the selected model is reliable and its performance is clearly justified.
 
 ---
 
-### 5. Documentation & Version Control
+### 6. Trust Score Generation
 
-Maintain comprehensive project documentation throughout the development process, organize the project using a clean folder structure, and use Git and GitHub with meaningful commit messages to demonstrate good software engineering and version control practices.
+Design a Website Trust Score ranging from 0–100 to provide users with more informative results instead of only binary predictions.
+
+Example:
+
+- 81–100 → Safe
+- 61–80 → Low Risk
+- 41–60 → Medium Risk
+- 21–40 → High Risk
+- 0–20 → Critical Risk
+
+This makes the system easier for non-technical users to understand.
 
 ---
 
-### 6. Testing & Validation
+### 7. Confidence Score Display
 
-Test the application using a variety of legitimate, phishing, invalid, and edge-case URLs to verify that the system produces consistent and reliable predictions under different scenarios.
+Display the model's confidence level along with predictions.
+
+Example:
+
+Prediction: Likely Phishing
+
+Confidence: 94%
+
+This helps users understand how certain the model is about its prediction.
+
+---
+
+### 8. Explainable AI
+
+Provide simple explanations for predictions by showing which URL features contributed most to the decision.
+
+Examples:
+
+- URL too long
+- Uses IP address
+- Contains suspicious keywords
+- Excessive subdomains
+
+This improves transparency and user trust.
+
+---
+
+### 9. Security Recommendations
+
+Generate practical cybersecurity advice based on the analysis, such as:
+
+- Avoid entering passwords
+- Avoid payments
+- Verify the official website
+- Do not share OTPs
+- Leave the website immediately
+
+This converts technical analysis into actionable guidance.
+
+---
+
+### 10. Dashboard Development
+
+Develop a clean Streamlit dashboard displaying:
+
+- Total URLs analyzed
+- Safe websites
+- Phishing websites
+- Trust Score distribution
+- Charts and analytics
+
+This improves usability and provides better insights.
+
+---
+
+### 11. Documentation & Version Control
+
+Maintain proper documentation throughout development and use:
+
+- Git
+- GitHub
+- Organized folder structure
+- Meaningful commits
+
+to demonstrate good software engineering practices.
+
+---
+
+### 12. Testing & Validation
+
+Test the system using:
+
+- Legitimate URLs
+- Phishing URLs
+- Invalid URLs
+- Edge cases
+
+to ensure reliable performance.
 
 ---
 
 ## Notes on Scope
 
-This version of the project focuses exclusively on **lexical (URL-based) feature extraction**, meaning all predictions are made using information contained within the URL itself.
+Version 1 of TrustLens focuses primarily on:
 
-To keep the project realistic, self-contained, and suitable for a college mini project, the system does **not** rely on external services such as:
+- URL Analysis
+- Machine Learning
+- Rule-Based Detection
+- Trust Score
+- Explainable Results
+- Recommendations
+- Dashboard
 
-- WHOIS lookup
-- Domain age analysis
-- SSL certificate validation
-- DNS reputation checks
-- Threat Intelligence APIs
+The following features are considered future enhancements:
 
-These advanced capabilities are considered future enhancements and may be incorporated in later versions of the project.
+- QR Code Analysis
+- OCR-Based URL Extraction
+- Email Phishing Detection
+- WHOIS Lookup
+- SSL Validation
+- VirusTotal Integration
+- Browser Extension
+- Cloud Deployment
+
+These features are intentionally excluded from Version 1 to keep the project realistic, focused, and achievable within a single academic semester.
