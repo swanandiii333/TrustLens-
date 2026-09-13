@@ -24,3 +24,7 @@ notebooks/phase3_learning.ipynb
 # Large dataset files
 data/raw/*.csv
 data/processed/*.csv
+
+# Local backup files
+app_backup_before_cleanup.py
+models/trustlens_production_pipeline_backup.joblib
