@@ -1,82 +1,219 @@
 # 08. Tech Stack
 
-## Purpose
+## 1. Purpose
 
-This document lists the technologies selected for Version 1 of the **AI-Powered Phishing URL Detection System**. It also explains why each technology was chosen and how it contributes to the overall project.
+This document describes the technologies, frameworks, libraries, and development tools used to build **TrustLens – AI-Based Website Trust & Phishing Risk Analyzer**.
 
-The selected technologies are open-source, widely adopted in industry, beginner-friendly, and appropriate for building a Machine Learning–based cybersecurity application.
+The selected technologies support the complete project workflow, including data processing, Machine Learning, model persistence, backend prediction, Streamlit application development, QR-code analysis, OCR-based URL extraction, testing, and version control.
 
 ---
 
-# Programming Language
+## 2. Programming Language
 
 | Technology | Purpose | Justification |
-|------------|---------|---------------|
-| **Python** | Core programming language | Python is the industry standard for Machine Learning, Data Science, and rapid application development. It provides a rich ecosystem of libraries that support data preprocessing, model training, visualization, and web application development within a single language. |
+|---|---|---|
+| **Python 3.13.14** | Main programming language | Python provides a large ecosystem for Machine Learning, data processing, cybersecurity development, automation, and application development. |
+
+Python is used throughout the project for data preparation, feature extraction, Machine Learning, backend prediction, QR/OCR processing, PDF generation, and the Streamlit application.
 
 ---
 
-# Machine Learning
+## 3. Machine Learning
 
 | Technology | Purpose | Justification |
-|------------|---------|---------------|
-| **Scikit-learn** | Machine Learning framework | Used for feature preprocessing, model training, prediction, and evaluation. It provides reliable implementations of many classical Machine Learning algorithms. |
-| **Candidate Algorithms** | Model experimentation | Multiple Scikit-learn classification algorithms (Logistic Regression, Decision Tree, and Random Forest) will be trained and evaluated using Accuracy, Precision, Recall, F1-Score, and Confusion Matrix. Random Forest is expected to be the primary model due to its strong performance on phishing URL classification tasks, but the final model will be selected based on experimental results rather than assumptions. |
+|---|---|---|
+| **Scikit-learn** | Machine Learning pipeline, preprocessing, model training, evaluation, and prediction | Provides the required tools for building and evaluating the phishing classification system. |
+| **Random Forest Classifier** | Final production classification model | Suitable for classification using structured URL features and can provide class probabilities for risk analysis. |
+| **Joblib** | Model persistence | Allows the trained production pipeline to be saved and loaded without retraining the model every time the application starts. |
+
+The final TrustLens production model is a Random Forest-based Scikit-learn pipeline.
+
+The saved production model is:
+
+```text
+models/trustlens_production_pipeline.joblib
+```
 
 ---
 
-# Data Handling & Visualization
+## 4. Data Processing and Analysis
 
 | Technology | Purpose | Justification |
-|------------|---------|---------------|
-| **Pandas** | Data manipulation | Used to load, clean, preprocess, and manipulate the phishing URL dataset efficiently. |
-| **NumPy** | Numerical computing | Provides efficient numerical operations and supports feature extraction and Machine Learning workflows. |
-| **Matplotlib** | Data visualization | Used to visualize dataset characteristics and evaluation results such as confusion matrices and class distributions. |
+|---|---|---|
+| **Pandas** | Dataset loading, cleaning, transformation, and analysis | Provides efficient tabular data processing for the phishing URL dataset. |
+| **NumPy** | Numerical operations and data manipulation | Supports numerical processing used during Machine Learning preparation and analysis. |
+| **Matplotlib** | Data visualization and exploratory analysis | Used to visualize dataset characteristics and Machine Learning-related analysis during development. |
+
+These tools were mainly used during the dataset preparation, exploratory analysis, feature engineering, and model development stages.
 
 ---
 
-# Model Persistence
+## 5. Web Application
 
 | Technology | Purpose | Justification |
-|------------|---------|---------------|
-| **Joblib** | Save and load trained models | Used to serialize the trained Machine Learning model after training and reload it during prediction without retraining the model each time the application starts. |
+|---|---|---|
+| **Streamlit** | User interface and application deployment | Allows the Machine Learning backend to be connected to an interactive web interface using Python without requiring a separate frontend framework. |
+
+The Streamlit application provides the main TrustLens interface for submitting URLs and viewing the resulting analysis.
 
 ---
 
-# User Interface
+## 6. URL Feature Extraction
+
+TrustLens uses a custom Python feature extraction module for converting a submitted URL into the 17 production features expected by the Machine Learning pipeline.
+
+The production features include:
+
+- URL length
+- Domain length
+- IP-address detection
+- TLD
+- TLD length
+- Number of subdomains
+- URL obfuscation
+- Obfuscated character count
+- Number of digits
+- Number of equals signs
+- Number of question marks
+- HTTPS usage
+- Number of dots
+- Number of slashes
+- Suspicious keyword count
+- Hyphen detection in the domain
+- Path depth
+
+The same feature definitions are used by the application during prediction to maintain consistency with the trained production model.
+
+---
+
+## 7. QR-Code and OCR Processing
 
 | Technology | Purpose | Justification |
-|------------|---------|---------------|
-| **Streamlit** | Web application framework | Used to build a lightweight, interactive web interface entirely in Python. It enables rapid development of Machine Learning applications without requiring frontend frameworks like React or Angular. |
+|---|---|---|
+| **OpenCV** | Image processing and QR-code related processing | Supports image preprocessing and QR-code analysis workflows. |
+| **OCR Processing** | Extracting URLs from screenshots | Allows TrustLens to analyze a URL shown in a browser screenshot or similar image. |
+
+The application supports two additional input methods besides direct URL entry:
+
+- QR-code URL extraction
+- Screenshot-based URL extraction using OCR
+
+After the URL is extracted, it is passed through the same validation, feature extraction, and prediction pipeline used for direct URL analysis.
 
 ---
 
-# Development Tools
+## 8. PDF Report Generation
 
-| Technology | Purpose | Justification |
-|------------|---------|---------------|
-| **Visual Studio Code** | Code editor | Used for writing, debugging, and managing the project source code with built-in terminal and Git integration. |
-| **Git** | Version control | Tracks source code changes through meaningful commits and supports collaborative software development practices. |
-| **GitHub** | Remote repository hosting | Hosts the project online, provides version backup, enables portfolio showcasing, and maintains complete project history. |
+TrustLens can generate a PDF report containing the results of a URL analysis.
+
+The report can include:
+
+- Analyzed URL
+- Prediction
+- Risk level
+- Risk score
+- Security explanations
+- Technical URL features
+- Security recommendations
+
+This provides a downloadable record of the analysis for demonstration and academic use.
 
 ---
 
-# Project Structure & Documentation
+## 9. Development Tools
 
-| Technology | Purpose | Justification |
-|------------|---------|---------------|
-| **Markdown (.md)** | Documentation | Used for writing project planning documents, technical documentation, and the project README in a clean, readable, and GitHub-friendly format. |
+| Technology | Purpose |
+|---|---|
+| **Jupyter Notebook** | Dataset analysis, feature engineering, Machine Learning experiments, evaluation, and final model development |
+| **Visual Studio Code** | Application and backend development |
+| **Python Virtual Environment** | Isolates project dependencies from the system Python environment |
+
+The Machine Learning development workflow is primarily documented in the project notebooks, while the final application is organized into Python source files.
 
 ---
 
-# Technology Selection Summary
+## 10. Version Control and Project Management
 
-The chosen technology stack emphasizes:
+| Technology | Purpose |
+|---|---|
+| **Git** | Source-code version control and change tracking |
+| **GitHub** | Remote repository and project collaboration/version history |
+| **Git LFS** | Storage and versioning of the production Machine Learning model |
 
-- Open-source tools
-- Cross-platform compatibility
-- Beginner-friendly development
-- Industry-standard Machine Learning libraries
-- Easy maintenance and future scalability
+Git LFS is used because the trained production model is larger than a typical source-code file and is better managed using large-file version control.
 
-This combination provides everything required to build, evaluate, document, and demonstrate the AI-Powered Phishing URL Detection System while keeping the project practical for a single-developer academic environment.
+---
+
+## 11. Dataset
+
+TrustLens uses the **PhiUSIIL phishing and legitimate URL dataset** for Machine Learning development.
+
+The dataset contains both phishing and legitimate website URLs and provides the foundation for:
+
+- Data cleaning
+- Exploratory data analysis
+- Feature engineering
+- Model training
+- Model evaluation
+- Structural robustness experiments
+
+The final production model uses a selected set of 17 URL-based features rather than relying on all original dataset columns.
+
+---
+
+## 12. Project Architecture Support
+
+The technology stack supports a clear separation between Machine Learning development and application-time prediction.
+
+The overall workflow is:
+
+```text
+Dataset
+   ↓
+Pandas / NumPy
+   ↓
+Feature Engineering
+   ↓
+Scikit-learn
+   ↓
+Random Forest Model
+   ↓
+Joblib
+   ↓
+Saved Production Pipeline
+   ↓
+Streamlit Application
+   ↓
+URL / QR / Screenshot Input
+   ↓
+Feature Extraction
+   ↓
+Prediction + Risk Analysis
+```
+
+This structure allows the trained model to be reused by the application without performing training during normal user interaction.
+
+---
+
+## 13. Technology Selection Summary
+
+The TrustLens technology stack was selected primarily because it is:
+
+- Suitable for Machine Learning development
+- Mostly open-source and freely available
+- Compatible with Python-based development
+- Practical for an academic cybersecurity project
+- Suitable for local development and demonstration
+- Flexible enough to support future improvements
+
+The combination of Python, Scikit-learn, Pandas, NumPy, Random Forest, Joblib, Streamlit, OpenCV, Git, and GitHub provides the required foundation for the current TrustLens implementation.
+
+---
+
+## 14. Conclusion
+
+The selected technology stack is suitable for developing and maintaining TrustLens as an academic cybersecurity project.
+
+Python and its Machine Learning ecosystem support the data and model development process, while Streamlit provides the application interface. Joblib enables the trained production model to be reused efficiently, and Git/GitHub with Git LFS provide version control for the project and its model artifact.
+
+The additional QR-code, OCR, and PDF capabilities extend the application beyond direct URL input while still using the same core URL analysis pipeline.
