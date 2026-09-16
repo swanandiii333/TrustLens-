@@ -44,7 +44,7 @@ The phishing probability is converted into a Risk Score from 0 to 100.
 | Phishing Probability | Risk Level | Classification |
 |---|---|---|
 | Below 40% | Low | Legitimate |
-| 40%–74.99% | Medium | Suspicious |
+| 40%-74.99% | Medium | Suspicious |
 | 75% or above | High | Phishing |
 
 ### Explainable Results
