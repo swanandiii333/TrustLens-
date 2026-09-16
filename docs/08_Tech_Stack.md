@@ -52,7 +52,7 @@ These tools were mainly used during the dataset preparation, exploratory analysi
 
 | Technology | Purpose | Justification |
 |---|---|---|
-| **Streamlit** | User interface and application deployment | Allows the Machine Learning backend to be connected to an interactive web interface using Python without requiring a separate frontend framework. |
+| **Streamlit** | User interface and local application execution | Allows the Machine Learning backend to be connected to an interactive web interface using Python without requiring a separate frontend framework. |
 
 The Streamlit application provides the main TrustLens interface for submitting URLs and viewing the resulting analysis.
 

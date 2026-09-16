@@ -190,7 +190,7 @@ Activities included:
 - Testing phishing URL patterns
 - Investigating false positives
 - Investigating false negatives
-- Selecting the final production approach
+- Selecting the final production approach based on model performance, robustness testing, and phishing regression testing
 
 The final production implementation uses a **Random Forest Classifier** inside a Scikit-learn pipeline.
 

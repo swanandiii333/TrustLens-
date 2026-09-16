@@ -62,10 +62,9 @@ This can cause a distribution difference between the training data and real-worl
 - Analyze the dataset before training.
 - Examine class and feature distributions.
 - Perform structural robustness experiments.
-- Add controlled legitimate structural examples during experimentation.
+- Add controlled legitimate structural examples during experimentation and evaluate whether they improve real-world robustness without reducing phishing detection performance.
 - Test the final model using additional representative URLs.
 - Avoid claiming that the model detects every phishing website.
-
 ---
 
 ### 2.4 Model Limitations

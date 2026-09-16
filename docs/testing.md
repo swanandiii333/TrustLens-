@@ -114,16 +114,15 @@ This demonstrates that screenshot analysis depends partly on OCR quality. Clear 
 
 ### 6.2 Phishing URLs
 
+
 | URL | Classification | Risk Level | Risk Score | Status |
 |---|---|---|---:|---|
 | `http://secure-login-example.com/verify/account` | Phishing | High | 93 | PASS |
 | `https://account-verification-update.com/login?redirect=%2Faccount%2Fverify` | Phishing | High | 100 | PASS |
-| `https://paypal-login-security.com` | Phishing | High | 98 | PASS |
-| `https://secure-bank-login.xyz/account` | Phishing | High | 95 | PASS |
-| `https://verify-your-account.com/update` | Phishing | High | 89 | PASS |
-| `https://login-security-check.net/verify` | Phishing | High | 95 | PASS |
+| `http://paypal-security-check.example.com/login/verify` | Phishing | High | 97 | PASS |
+| `https://secure-account-verification.example.com/update/password` | Suspicious | Medium | 44 | PASS |
 
-The tested phishing examples were consistently classified as phishing.
+The tested phishing examples were consistently detected as phishing or suspicious according to the defined risk thresholds.
 
 These are targeted test examples and should not be interpreted as a measurement of overall real-world phishing detection accuracy.
 

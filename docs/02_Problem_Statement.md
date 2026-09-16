@@ -73,8 +73,8 @@ The system combines Machine Learning with rule-based cybersecurity analysis to e
 For every analyzed website, TrustLens provides:
 
 - A prediction (Legitimate or Phishing)
-- A Website Trust Score (0–100)
-- A Threat Level
+- A Risk Score (0–100)
+- A Risk Level
 - Model Confidence
 - Rule-Based Security Findings
 - Explainable analysis of suspicious URL characteristics

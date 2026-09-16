@@ -10,7 +10,7 @@ The architecture separates Machine Learning development from application-time pr
 
 ## 2. Architectural Style
 
-TrustLens follows a modular **two-stage Machine Learning architecture**:
+TrustLens follows a modular architecture with two distinct Machine Learning stages:
 
 1. **Training Pipeline (Offline)**
 2. **Inference Pipeline (Application-Time Prediction)**

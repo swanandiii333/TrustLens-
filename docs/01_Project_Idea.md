@@ -270,7 +270,7 @@ OCR accuracy depends on the clarity and quality of the screenshot.
 
 ---
 
-### 11. Dashboard Development
+### 11. Streamlit Application
 
 TrustLens provides a Streamlit-based interface for interacting with the system.
 

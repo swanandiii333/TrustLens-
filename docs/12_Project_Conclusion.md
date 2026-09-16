@@ -24,11 +24,11 @@ The completed system can:
 
 ## 3. Machine Learning Outcome
 
-The final production model was evaluated on a holdout dataset and achieved an accuracy of approximately **98.34%**.
+The final production model was evaluated on a separate holdout dataset and achieved approximately **98.34% accuracy**.
 
 Additional targeted testing was also performed to examine difficult legitimate and phishing URL structures.
 
-The testing showed that the model performs well on the evaluated dataset and phishing stress cases, while some complex legitimate URLs can receive higher phishing probabilities.
+The testing showed that the model performs well on the evaluated dataset and phishing stress cases, while some complex legitimate URLs can receive higher phishing probabilities. These results highlight the limitations of relying primarily on URL-level structural and lexical features.
 
 ## 4. Limitations
 
